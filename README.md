@@ -4,7 +4,7 @@
 
 ## Features
 
-- **Secure User Authentication:** JWT authentication with password hashing and optional email verification.
+- **Secure User Authentication:** JWT authentication with password hashing.
 - **Friend Requests and Connections:** Manage friend requests, accept/reject connections, and view a user's friend list.
 - **Social Interactions:** Post status updates, view friends' feeds, and interact with posts (like, comment).
 
@@ -24,9 +24,11 @@
    
 2. Create a virtual environment and activate it:
 
-  python -m venv venv
+  ```python -m venv venv
+
   source venv/bin/activate  # Linux/macOS
-  venv\Scripts\activate.bat  # Windows
+
+  venv\Scripts\activate.bat  # Windows .
 
 3. Install dependencies:
 
