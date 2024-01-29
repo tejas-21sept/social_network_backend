@@ -29,7 +29,8 @@
 
   source venv/bin/activate  # Linux/macOS
 
-  venv\Scripts\activate.bat  # Windows .
+  venv\Scripts\activate.bat  # Windows 
+  
   ```
 
 3. Install dependencies:
