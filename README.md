@@ -42,11 +42,21 @@
 
 4. Create a .env file:
 
-  > Create a file named .env in the root directory of the project.
+  - Create a file named .env in the root directory of the project.
+  - Copy the contents of the ``.env-example`` file into .env.
+  - Fill in the appropriate values for your environment variables, such as API keys, database credentials, and any other sensitive information.
 
-  > Copy the contents of the .env-example file into .env.
-  
-  > Fill in the appropriate values for your environment variables, such as API keys, database credentials, and any other sensitive information.
+5. Create a database.
+  - MySQL-specific instructions: The following commands are specific to MySQL databases. If you're using a different database, please refer to its documentation for the appropriate commands.
+
+  * Open the MySQL command line client: Access your MySQL client using your preferred method (e.g., through a terminal or GUI tool).
+
+  * Create the database: Execute the following command to create a new database, replacing DATABASE_NAME with your desired name:
+
+  ```mysql
+    CREATE DATABASE_NAME ;
+
+  ```
 
 5. Apply database migrations
    
