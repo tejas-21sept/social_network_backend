@@ -4,6 +4,7 @@ from social.views.users import (
     FriendRequestViewSet,
     FriendsListViewSet,
     UserSearchAPIView,
+    PendingFriendRequestsViewSet,
 )
 
 urlpatterns = [
@@ -22,5 +23,10 @@ urlpatterns = [
         "friends/",
         FriendsListViewSet.as_view({"get": "list"}),
         name="friends-list",
+    ),
+    path(
+        "pending-requests/",
+        PendingFriendRequestsViewSet.as_view({"get": "list"}),
+        name="pending-friend-requests",
     ),
 ]

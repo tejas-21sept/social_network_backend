@@ -289,3 +289,58 @@ class FriendsListViewSet(viewsets.ReadOnlyModelViewSet):
                 ),
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+
+
+class PendingFriendRequestsViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    A ViewSet for retrieving the list of pending friend requests for the authenticated user.
+
+    Attributes:
+    - serializer_class: Serializer class to use for FriendRequest serialization.
+    - permission_classes: List of permission classes to apply for authentication.
+    """
+
+    serializer_class = FriendRequestSerializer
+    permission_classes = [IsAuthenticated]
+
+    def list(self, request, *args, **kwargs):
+        """
+        Retrieve the list of pending friend requests for the authenticated user.
+
+        Parameters:
+        - request: The request object.
+        - args: Additional arguments.
+        - kwargs: Additional keyword arguments.
+
+        Returns:
+        - Response: HTTP response containing the list of pending friend requests or an error message.
+        """
+        try:
+            # Get the authenticated user
+            user = self.request.user
+
+            # Retrieve pending friend requests for the authenticated user
+            pending_requests = FriendRequest.objects.filter(
+                to_user=user, status="pending"
+            )
+
+            # Serialize the list of pending friend requests
+            serializer = self.get_serializer(pending_requests, many=True)
+
+            # Return the serialized data in a formatted API response
+            return Response(
+                api_response(
+                    status_code=200,
+                    data=serializer.data,
+                ),
+                status=status.HTTP_200_OK,
+            )
+        except Exception as e:
+            # Handle exceptions and return an error response
+            return Response(
+                api_response(
+                    status_code=500,
+                    message={"detail": str(e)},
+                ),
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
