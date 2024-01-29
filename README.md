@@ -99,7 +99,7 @@
 
   ```
 
-## Note:- After running local server, in postman use `base_url` as `http://127.0.0.1:8000`.
+### Note:- After running local server, in postman use `base_url` as `http://127.0.0.1:8000`.
 
 ## Resources
 
