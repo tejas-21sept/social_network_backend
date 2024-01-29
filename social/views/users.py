@@ -10,6 +10,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from social.models import FriendRequest, User
 from social.serializers.requests import FriendRequestSerializer
 from social.serializers.search import UserSearchSerializer
+from social.serializers.user import UserSerializer
 from social.utils.responses import api_response
 
 
@@ -224,6 +225,35 @@ class FriendRequestViewSet(viewsets.GenericViewSet):
                 ),
                 status=status.HTTP_404_NOT_FOUND,
             )
+        except Exception as e:
+            return Response(
+                api_response(
+                    status_code=500,
+                    message={"detail": str(e)},
+                ),
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
+
+class FriendsListViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def list(self, request, *args, **kwargs):
+        try:
+            user = self.request.user
+            friends = User.objects.filter(
+                received_requests__from_user=user, received_requests__status="accepted"
+            )
+            serializer = self.get_serializer(friends, many=True)
+            return Response(
+                api_response(
+                    status_code=200,
+                    data=serializer.data,
+                ),
+                status=status.HTTP_200_OK,
+            )
+
         except Exception as e:
             return Response(
                 api_response(
