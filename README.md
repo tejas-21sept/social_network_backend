@@ -40,13 +40,7 @@
 
   ```
 
-4. Create a .env file:
-
-  - Create a file named .env in the root directory of the project.
-  - Copy the contents of the ``.env-example`` file into .env.
-  - Fill in the appropriate values for your environment variables, such as API keys, database credentials, and any other sensitive information.
-
-5. Create a database.
+4. Create a database.
   - MySQL-specific instructions: The following commands are specific to MySQL databases. If you're using a different database, please refer to its documentation for the appropriate commands.
 
   * Open the MySQL command line client: Access your MySQL client using your preferred method (e.g., through a terminal or GUI tool).
@@ -58,7 +52,13 @@
 
   ```
 
-5. Apply database migrations
+5. Create a .env file:
+
+  - Create a file named .env in the root directory of the project.
+  - Copy the contents of the ``.env-example`` file into .env.
+  - Fill in the appropriate values for your environment variables, such as API keys, database credentials, and any other sensitive information.
+
+6. Apply database migrations
    
   ```python 
     python manage.py makemigrations
@@ -66,7 +66,7 @@
 
   ```
 
-6. Run the development server:
+7. Run the development server:
 
    ```python
     python manage.py runserver
