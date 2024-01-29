@@ -26,17 +26,35 @@
    
 2. Create a virtual environment and activate it:
 
-  ```python
-    cd social_network_backend
+    1.Open a terminal:
+
+      - Windows: Open `Command Prompt` or `PowerShell`.
+      - macOS/Linux: Open a terminal window.
     
-    python -m venv venv
+    2. Navigate to the project directory:
 
-    source venv/bin/activate  # Linux/macOS
+      ```python
+        cd social_network_backend
+    
+      ```
 
-    venv\Scripts\activate.bat  # Windows 
+    3. Create the virtual environment:
 
-  ```
+       ```python
+        python -m venv venv
 
+      ```
+
+    4. Activate the virtual environment:
+
+      ```python
+
+        source venv/bin/activate  # Linux/macOS
+
+        venv\Scripts\activate.bat  # Windows 
+
+      ```
+      
 3. Install dependencies:
 
   ```pip
