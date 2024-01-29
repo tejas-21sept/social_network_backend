@@ -21,6 +21,8 @@
 
    ```bash
    git clone https://github.com/tejas-21sept/social_network_backend.git
+
+   ```
    
 2. Create a virtual environment and activate it:
 
