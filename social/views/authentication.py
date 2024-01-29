@@ -16,7 +16,7 @@ class UserSignupAPIView(APIView):
     """
     API view for user signup.
 
-    Endpoint: /api/users/signup/
+    Endpoint: /api/auth/signup/
     Method: POST
 
     Parameters (in request body):
@@ -66,7 +66,7 @@ class UserLoginAPIView(APIView):
     """
     API view for user login.
 
-    Endpoint: /api/users/login/
+    Endpoint: /api/auth/login/
     Method: POST
 
     Parameters (in request body):
