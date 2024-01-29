@@ -43,7 +43,9 @@
 4. Create a .env file:
 
   > Create a file named .env in the root directory of the project.
+
   > Copy the contents of the .env-example file into .env.
+  
   > Fill in the appropriate values for your environment variables, such as API keys, database credentials, and any other sensitive information.
 
 5. Apply database migrations
