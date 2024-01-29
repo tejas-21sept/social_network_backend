@@ -27,15 +27,17 @@
   ```python
     python -m venv venv
 
-  source venv/bin/activate  # Linux/macOS
+    source venv/bin/activate  # Linux/macOS
 
-  venv\Scripts\activate.bat  # Windows 
-  
+    venv\Scripts\activate.bat  # Windows 
+
   ```
 
 3. Install dependencies:
 
-  pip install -r requirements.txt
+  ```pip
+    pip install -r requirements.txt
+
 
 4. Create a .env file:
 
@@ -45,12 +47,15 @@
 
 5. Apply database migrations
    
-  python manage.py makemigrations
-  python manage.py migrate
+  ```python 
+    python manage.py makemigrations
+    python manage.py migrate
+
 
 6. Run the development server:
 
-   python manage.py runserver
+   ```python
+    python manage.py runserver
 
 
 ## Resources
