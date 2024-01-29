@@ -37,6 +37,7 @@
 
   ```pip
     pip install -r requirements.txt
+  ```
 
 
 4. Create a .env file:
@@ -50,12 +51,14 @@
   ```python 
     python manage.py makemigrations
     python manage.py migrate
+  ```
 
 
 6. Run the development server:
 
    ```python
     python manage.py runserver
+  ```
 
 
 ## Resources
