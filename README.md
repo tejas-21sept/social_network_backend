@@ -42,13 +42,13 @@
 
     iii. Create the virtual environment:
 
-       ```python
+      ```python
         python -m venv venv
 
       ```
 
-
     iv. Activate the virtual environment:
+
 
       ```python
 
@@ -57,7 +57,7 @@
         venv\Scripts\activate.bat  # Windows 
 
       ```
-      
+
 
 3. Install dependencies:
 
