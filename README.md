@@ -82,6 +82,6 @@
    
   > Copy below URL in browser 
   
-  https://api.postman.com/collections/27274140-d5634f89-705a-46fd-84ba-4d7a980e5fea?access_key=PMAT-01HN9NNNNJB7MBS5SHXG4B34WY
+  `https://api.postman.com/collections/27274140-d5634f89-705a-46fd-84ba-4d7a980e5fea?access_key=PMAT-01HN9NNNNJB7MBS5SHXG4B34WY`
 
   > Open postman webapp/app and go to the existing collections. Click on import and above link there and import the collection.
