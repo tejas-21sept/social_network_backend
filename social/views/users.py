@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
+from django_ratelimit.decorators import ratelimit
 from rest_framework import status, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -88,6 +90,7 @@ class FriendRequestViewSet(viewsets.GenericViewSet):
     queryset = FriendRequest.objects.all()
     serializer_class = FriendRequestSerializer
 
+    @method_decorator(ratelimit(key="user", rate="3/m", block=True))
     def create(self, request, *args, **kwargs):
         """
         Create a new FriendRequest.
