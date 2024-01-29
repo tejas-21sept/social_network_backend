@@ -24,9 +24,10 @@
    
 2. Create a virtual environment and activate it:
 
-  `python -m venv venv`
+  ```python
+    python -m venv venv
 
-  `source venv/bin/activate`  # Linux/macOS
+  source venv/bin/activate  # Linux/macOS
 
   venv\Scripts\activate.bat  # Windows .
 
