@@ -236,16 +236,42 @@ class FriendRequestViewSet(viewsets.GenericViewSet):
 
 
 class FriendsListViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    A ViewSet for retrieving the list of friends for the authenticated user.
+
+    Attributes:
+    - serializer_class: Serializer class to use for User serialization.
+    - permission_classes: List of permission classes to apply for authentication.
+    """
+
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
     def list(self, request, *args, **kwargs):
+        """
+        Retrieve the list of friends for the authenticated user.
+
+        Parameters:
+        - request: The request object.
+        - args: Additional arguments.
+        - kwargs: Additional keyword arguments.
+
+        Returns:
+        - Response: HTTP response containing the list of friends or an error message.
+        """
         try:
+            # Get the authenticated user
             user = self.request.user
+
+            # Retrieve friends by filtering users who sent accepted friend requests to the authenticated user
             friends = User.objects.filter(
                 received_requests__from_user=user, received_requests__status="accepted"
             )
+
+            # Serialize the list of friends
             serializer = self.get_serializer(friends, many=True)
+
+            # Return the serialized data in a formatted API response
             return Response(
                 api_response(
                     status_code=200,
@@ -255,6 +281,7 @@ class FriendsListViewSet(viewsets.ReadOnlyModelViewSet):
             )
 
         except Exception as e:
+            # Handle exceptions and return an error response
             return Response(
                 api_response(
                     status_code=500,
