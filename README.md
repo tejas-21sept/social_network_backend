@@ -28,6 +28,7 @@
 
   ```python
     cd social_network_backend
+    
     python -m venv venv
 
     source venv/bin/activate  # Linux/macOS
