@@ -47,6 +47,7 @@
 
       ```
 
+
     iv. Activate the virtual environment:
 
       ```python
@@ -56,6 +57,7 @@
         venv\Scripts\activate.bat  # Windows 
 
       ```
+      
 
 3. Install dependencies:
 
