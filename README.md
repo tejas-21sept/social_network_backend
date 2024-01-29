@@ -19,10 +19,10 @@
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/tejas-21sept/social_network_backend.git
+  ```bash
+    git clone https://github.com/tejas-21sept/social_network_backend.git
 
-   ```
+  ```
    
 2. Create a virtual environment and activate it:
 
@@ -94,10 +94,12 @@
 
 7. Run the development server:
 
-   ```python
+  ```python
     python manage.py runserver
 
   ```
+
+### Note:- After running local server, in postman use `base_url` as `http://127.0.0.1:8000`.
 
 ## Resources
 
