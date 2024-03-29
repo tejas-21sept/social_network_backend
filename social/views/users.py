@@ -173,7 +173,7 @@ class FriendRequestViewSet(viewsets.GenericViewSet):
             status=status.HTTP_201_CREATED,
         )
 
-    def update(self, request, *args, **kwargs):
+    def update(self, request, pk):
         """
         Update the status of a FriendRequest.
 
@@ -186,11 +186,9 @@ class FriendRequestViewSet(viewsets.GenericViewSet):
         - Response: HTTP response indicating the success or failure of the request.
         """
         try:
-            friend_request = get_object_or_404(self.get_queryset(), pk=kwargs.get("pk"))
-            friend_request = self.get_object()
+            friend_request = get_object_or_404(FriendRequest, pk=pk)
             action = request.data.get("action", "reject")
-
-            if request.user == friend_request.to_user:
+            if request.user == friend_request.from_user:
                 if action == "accept":
                     friend_request.status = "accepted"
                 elif action == "reject":
@@ -229,6 +227,7 @@ class FriendRequestViewSet(viewsets.GenericViewSet):
                 status=status.HTTP_404_NOT_FOUND,
             )
         except Exception as e:
+            print(f"\nError - {e}\n")
             return Response(
                 api_response(
                     status_code=500,
@@ -265,6 +264,7 @@ class FriendsListViewSet(viewsets.ReadOnlyModelViewSet):
         try:
             # Get the authenticated user
             user = self.request.user
+            print(f"\nuser - {user}\n")
 
             # Retrieve friends by filtering users who sent accepted friend requests to the authenticated user
             friends = User.objects.filter(
@@ -321,10 +321,11 @@ class PendingFriendRequestsViewSet(viewsets.ReadOnlyModelViewSet):
         try:
             # Get the authenticated user
             user = self.request.user
+            print(f"\nuser - {user}\n")
 
             # Retrieve pending friend requests for the authenticated user
             pending_requests = FriendRequest.objects.filter(
-                to_user=user, status="pending"
+                from_user=user, status="pending"
             )
 
             # Serialize the list of pending friend requests
