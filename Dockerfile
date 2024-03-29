@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Install system dependencies
 RUN apk update && \
-    apk add --no-cache build-base postgresql-dev
+    apk add --no-cache build-base mysql-dev
 
 # Set the working directory in the container
 WORKDIR /app
